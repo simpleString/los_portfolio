@@ -1,0 +1,25 @@
+.header a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.4em;
+}
+
+.header a:hover {
+  color: #ccc;
+}
+
+.header__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.header__toolbar-nav {
+  align-items: center;
+  text-align: center;
+}
+
+.header__toolbar-switch {
+  margin-left: 1em;
+}
