@@ -4,9 +4,9 @@
   padding-top: 2em;
 }
 
-.main__row div {
+/* .main__row div {
   margin: 0 2em;
-}
+} */
 
 .main__row .gradient-line {
   margin: 0;
@@ -15,4 +15,9 @@
 .main__row-second {
   justify-content: start;
   margin-left: 1em;
+}
+
+.main__row-third {
+  display: flex;
+  justify-content: end;
 }
