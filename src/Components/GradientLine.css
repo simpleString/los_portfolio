@@ -1,7 +1,0 @@
-.gradient-line {
-  background: linear-gradient(90deg, #c4c4c4 0%, rgba(2, 228, 192, 1) 100%);
-  border-radius: 5px;
-  content: '';
-  height: 3px;
-  margin-top: 1em;
-}

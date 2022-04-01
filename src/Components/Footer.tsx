@@ -1,17 +1,25 @@
 import React from 'react';
-import GradientLine from './GradientLine';
+import Box from './Styled/Box';
+import TitleWithGradient from './Styled/TitleWithGradient';
+import styled from '@emotion/styled';
+
+const List = styled.ul`
+  margin-left: 2em;
+  & li {
+    color: #6bc3b5;
+  }
+`;
 
 const Footer = () => {
   return (
-    <>
-      <h1>Links</h1>
-      <GradientLine width={208} />
-      <ul>
+    <Box>
+      <TitleWithGradient>Links</TitleWithGradient>
+      <List>
         <li>Github</li>
         <li>Youtube</li>
         <li>Instagram</li>
-      </ul>
-    </>
+      </List>
+    </Box>
   );
 };
 

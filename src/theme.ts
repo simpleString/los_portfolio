@@ -22,6 +22,13 @@ const darkTheme = createTheme({
       color: 'white',
     },
   },
+  components: {
+    MuiList: {
+      styleOverrides: {
+        root: { backgroundColor: '#202023' },
+      },
+    },
+  },
 });
 
 const lightTheme = createTheme({

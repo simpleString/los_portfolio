@@ -1,70 +1,134 @@
-import { Button } from '@mui/material';
-import { Box } from '@mui/system';
+import { Button, Container, Theme, TypographyProps } from '@mui/material';
 import React from 'react';
+import styled from '@emotion/styled';
+import Typography from '@mui/material/Typography';
+import profile from '../images/Profile_img.png';
+import { css, withTheme } from '@emotion/react';
+import bugImg from '../images/Bug.png';
+import unityImg from '../images/Unity.png';
+import noteImg from '../images/Note.png';
 import Footer from '../Components/Footer';
-import GradientLine from '../Components/GradientLine';
-import ProfileImg from '../images/Profile_img.png';
-import './Main.css';
+import TitleWithGradient from '../Components/Styled/TitleWithGradient';
+import Box from '../Components/Styled/Box';
+
+const Flexbox = styled.div<{ theme?: Theme }>`
+  margin-top: 1em;
+  display: flex;
+  width: 90%;
+  & > img {
+    padding-right: 2em;
+  }
+  // ${(props) => props.theme.breakpoints.down('sm')} {
+  //   display: block;
+  //   //margin: auto;
+  // }
+`;
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: start;
+  height: 100vh;
+
+  .list-without-style {
+    & li {
+      list-style-type: none;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      & * {
+        margin-right: 1em;
+        margin-top: 4px;
+      }
+    }
+  }
+`;
+
+const ParagraphText = styled(Typography)<TypographyProps<never>>`
+  text-indent: 2em;
+  max-width: 100%;
+  text-align: justify;
+`;
+
+const StyledButton = styled(Button)`
+  background-color: #6bc3b5;
+  height: 50px;
+  width: 200px;
+  border-radius: 15px;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  &:hover {
+    background-color: #8abeb8;
+  }
+`;
 
 const Main = () => {
   return (
-    <div className='main'>
-      <div className='main__row'>
+    <StyledContainer maxWidth='sm'>
+      <Flexbox>
+        <img src={profile} height={110} alt={'something'} />
         <div>
-          <Box
-            component='img'
-            src={ProfileImg}
-            sx={{
-              height: 110,
-              width: 110,
-            }}
-          />
-        </div>
-        <div>
-          <h2>LOIS MECHAEL</h2>
-          <GradientLine width={208} />
-          <ul>
-            <li>Game development on UNITY</li>
-            <li>Creation of the game concept</li>
-            <li>Creating and fixing bugs</li>
+          <TitleWithGradient
+            variant='h5'
+            component={'h1'}
+            textAlign={'justify'}
+          >
+            Los Michail
+          </TitleWithGradient>
+          <ul className={'list-without-style'}>
+            <li>
+              <img src={unityImg} height='30px' alt={'something'} />
+              Game development on UNITY
+            </li>
+            <li>
+              <img src={noteImg} height='30px' alt={'something'} />
+              Creation of the game concept
+            </li>
+            <li>
+              <img src={bugImg} height='30px' alt={'something'} />
+              Creating and fixing bugs{' '}
+            </li>
           </ul>
         </div>
-      </div>
-      <div className='main__row main__row-second'>
-        <div>
-          <h2>My progress</h2>
-          <GradientLine width={208} />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            facere temporibus cumque eveniet at nesciunt, nihil ab modi suscipit
-            porro distinctio quasi. Veniam esse unde facere itaque maxime!
-            Reiciendis, saepe!
-          </p>
+      </Flexbox>
+      <Box>
+        <TitleWithGradient variant='h5' component={'h1'}>
+          My progress
+        </TitleWithGradient>
+        <ParagraphText>
+          Hello! My name is Michael. I am 21 years old, studying at a technical
+          university and developing games👾👾👾 2 years. The first year I was
+          engaged in personal projects, while studying the Unity engine. For the
+          second year, I was lucky to work with publishers, sell a few of my
+          games, and also make a couple of games for bloggers!
+        </ParagraphText>
+      </Box>
+      <StyledButton variant={'outlined'}>Games</StyledButton>
+      <Box>
+        <div
+          css={css`
+            display: flex;
+            justify-content: right;
+          `}
+        >
+          <TitleWithGradient variant='h5' component={'h1'}>
+            Experience
+          </TitleWithGradient>
         </div>
-      </div>
-      <div className='main__row'>
-        <Button variant='contained'>Games</Button>
-      </div>
-      <div className='main__row'>
-        <div>
-          <h2 className='main__row-third'>My progress</h2>
-          <div className='main__row-third'>
-            <GradientLine width={208} />
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            facere temporibus cumque eveniet at nesciunt, nihil ab modi suscipit
-            porro distinctio quasi. Veniam esse unde facere itaque maxime!
-            Reiciendis, saepe!
-          </p>
-        </div>
-      </div>
-      <div className='main__row'>
-        <Button variant='contained'>Posts</Button>
-      </div>
+        <ParagraphText>
+          Having a certain experience is an amazing property of human
+          consciousness. With my games, I try to convey the experience to the
+          players. And also I share the experience of creating games with other
+          developers in my posts
+        </ParagraphText>
+      </Box>
+      <StyledButton variant={'outlined'}>Posts</StyledButton>
       <Footer />
-    </div>
+    </StyledContainer>
   );
 };
 
-export default Main;
+export default withTheme(Main);
