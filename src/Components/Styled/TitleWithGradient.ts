@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import { TypographyProps } from '@mui/material';
 
 const TitleWithGradient = styled(Typography)<
-  TypographyProps<never, { component?: string }>
+  TypographyProps<any, { component?: string }>
 >`
   text-transform: uppercase;
   font-weight: bold;

@@ -45,7 +45,7 @@ const StyledContainer = styled(Container)`
   }
 `;
 
-const ParagraphText = styled(Typography)<TypographyProps<never>>`
+const ParagraphText = styled(Typography)<TypographyProps<any>>`
   text-indent: 2em;
   max-width: 100%;
   text-align: justify;
