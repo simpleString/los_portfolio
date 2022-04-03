@@ -18,10 +18,6 @@ const Flexbox = styled.div<{ theme?: Theme }>`
   & > img {
     padding-right: 2em;
   }
-  // ${(props) => props.theme.breakpoints.down('sm')} {
-  //   display: block;
-  //   //margin: auto;
-  // }
 `;
 
 const StyledContainer = styled(Container)`

@@ -1,135 +1,35 @@
 import React from 'react';
-import {
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Container,
-} from '@mui/material';
+import { Container } from '@mui/material';
 import { withTheme } from '@emotion/react';
-import aspidistra from '../images/aspidistra.jpeg';
-import StyledCard from '../Components/Styled/StyledCard';
 import ContentBlock from '../Components/Styled/ContentBlock';
-import CardText from '../Components/Styled/CardText';
-import StyledCardMedia from '../Components/Styled/StyledCardMedia';
 import TitleStyled from '../Components/Styled/TitleStyled';
+import { useFetch } from '../hooks/useFetch';
+import CardItem from '../Components/CardItem';
+
+interface IGameData {
+  img: string;
+  postUrl: string;
+  title: string;
+}
 
 const Games = () => {
+  const games = useFetch<IGameData[]>('games', 'GET');
+
   return (
     <Container maxWidth={'sm'}>
       <TitleStyled variant='h5' component='h1'>
         TOPICAL GAMES
       </TitleStyled>
-      <ContentBlock>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-      </ContentBlock>
-      <TitleStyled variant='h5' component='h1'>
-        COMPLETED GAMES
-      </TitleStyled>
-      <ContentBlock>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-      </ContentBlock>
-      <TitleStyled variant='h5' component='h1'>
-        OLD GAMES
-      </TitleStyled>
-      <ContentBlock>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-        <StyledCard variant={'outlined'}>
-          <CardActionArea>
-            <StyledCardMedia component={'img'} image={aspidistra} />
-            <CardContent>
-              <CardText>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-              </CardText>
-            </CardContent>
-            <CardMedia />
-          </CardActionArea>
-        </StyledCard>
-      </ContentBlock>
+      {games?.map((game, index) => (
+        <ContentBlock key={index}>
+          <CardItem
+            image={game?.img as string}
+            text={game?.title as string}
+            url={game?.postUrl as string}
+            baseUrl={'games'}
+          />
+        </ContentBlock>
+      ))}
     </Container>
   );
 };
