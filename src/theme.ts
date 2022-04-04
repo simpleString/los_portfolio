@@ -7,7 +7,7 @@ const darkTheme = createTheme({
     },
     background: {
       default: '#202023',
-      paper: '#636365',
+      paper: '#313134',
     },
     secondary: {
       main: '#EAEAEA',
@@ -42,6 +42,24 @@ const lightTheme = createTheme({
     },
     background: {
       default: '#FFFEFC',
+      paper: '#FFFEFC',
+    },
+    text: {
+      primary: '#000',
+      secondary: '#000',
+    },
+  },
+  typography: {
+    fontFamily: 'Montserrat',
+    allVariants: {
+      color: 'black',
+    },
+  },
+  components: {
+    MuiList: {
+      styleOverrides: {
+        root: { backgroundColor: '#F6F3F2' },
+      },
     },
   },
 });

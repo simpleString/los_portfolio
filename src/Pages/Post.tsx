@@ -13,7 +13,9 @@ const Post = () => {
 
   return (
     <Container maxWidth={'sm'}>
-      <TitleWithGradient>{postName?.data}</TitleWithGradient>
+      <TitleWithGradient lineWidth={'420px'} marginTop={'1em'}>
+        {postName?.data}
+      </TitleWithGradient>
       <ReactMarkdown
         transformImageUri={(src) => {
           return BASE_URL + `posts/${slug}/${src}`;

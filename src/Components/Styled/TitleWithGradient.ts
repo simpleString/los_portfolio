@@ -3,14 +3,14 @@ import Typography from '@mui/material/Typography';
 import { TypographyProps } from '@mui/material';
 
 const TitleWithGradient = styled(Typography)<
-  TypographyProps<any, { component?: string }>
+  TypographyProps<any, { component?: string; lineWidth?: string }>
 >`
   text-transform: uppercase;
   font-weight: bold;
   display: inline-block;
   position: relative;
   margin-bottom: 1.5em;
-
+  font-size: 1.5em;
   &:after {
     position: absolute;
     top: 100%;
@@ -18,7 +18,7 @@ const TitleWithGradient = styled(Typography)<
     right: 0;
     content: '';
     height: 3px;
-    width: 150px;
+    width: ${(props) => (props.lineWidth ? props.lineWidth : '150px')};
 
     background: linear-gradient(
       90deg,

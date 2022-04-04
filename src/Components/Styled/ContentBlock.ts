@@ -4,7 +4,7 @@ import { Theme } from '@mui/material';
 const ContentBlock = styled.div<{ theme?: Theme }>`
   display: flex;
   flex-wrap: wrap;
-  background-color: #313134;
+
   ${(props) => props.theme.breakpoints.down('sm')} {
     display: block;
   }

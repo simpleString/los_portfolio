@@ -1,4 +1,10 @@
-import { Button, Container, Theme, TypographyProps } from '@mui/material';
+import {
+  Button,
+  Container,
+  Theme,
+  TypographyProps,
+  Link as MaterialLink,
+} from '@mui/material';
 import React from 'react';
 import styled from '@emotion/styled';
 import Typography from '@mui/material/Typography';
@@ -10,6 +16,7 @@ import noteImg from '../images/Note.png';
 import Footer from '../Components/Footer';
 import TitleWithGradient from '../Components/Styled/TitleWithGradient';
 import Box from '../Components/Styled/Box';
+import { Link } from 'react-router-dom';
 
 const Flexbox = styled.div<{ theme?: Theme }>`
   margin-top: 1em;
@@ -102,7 +109,10 @@ const Main = () => {
           games, and also make a couple of games for bloggers!
         </ParagraphText>
       </Box>
-      <StyledButton variant={'outlined'}>Games</StyledButton>
+      <MaterialLink component={Link} to={'/games'}>
+        <StyledButton variant={'outlined'}>Games</StyledButton>
+      </MaterialLink>
+
       <Box>
         <div
           css={css`
@@ -121,7 +131,10 @@ const Main = () => {
           developers in my posts
         </ParagraphText>
       </Box>
-      <StyledButton variant={'outlined'}>Posts</StyledButton>
+      <MaterialLink component={Link} to={'/posts'}>
+        <StyledButton variant={'outlined'}>Posts</StyledButton>
+      </MaterialLink>
+
       <Footer />
     </StyledContainer>
   );

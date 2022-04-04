@@ -20,16 +20,17 @@ const Posts = () => {
       <TitleStyled variant='h5' component='h1'>
         POSTS
       </TitleStyled>
-      {posts?.map((post, index) => (
-        <ContentBlock key={index}>
+      <ContentBlock>
+        {posts?.map((post, index) => (
           <CardItem
+            key={index}
             image={post?.img as string}
             text={post?.title as string}
             url={post?.postUrl as string}
             baseUrl={'posts'}
           />
-        </ContentBlock>
-      ))}
+        ))}
+      </ContentBlock>
     </Container>
   );
 };
