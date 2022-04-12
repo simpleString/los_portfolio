@@ -17,9 +17,11 @@ import Footer from '../Components/Footer';
 import TitleWithGradient from '../Components/Styled/TitleWithGradient';
 import Box from '../Components/Styled/Box';
 import { Link } from 'react-router-dom';
+import GameBlock from '../Components/GameBlock';
+import CommentBlock from '../Components/CommentBlock';
 
 const Flexbox = styled.div<{ theme?: Theme }>`
-  margin-top: 1em;
+  margin-top: ${(props) => props.theme.spacing(1)};
   display: flex;
   width: 90%;
   & > img {
@@ -28,10 +30,11 @@ const Flexbox = styled.div<{ theme?: Theme }>`
 `;
 
 const StyledContainer = styled(Container)`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: start;
+  display: block;
+  margin: 0 auto;
+  //flex-flow: row wrap;
+  //justify-content: center;
+  //align-content: start;
   height: 100vh;
 
   .list-without-style {
@@ -70,7 +73,9 @@ const StyledButton = styled(Button)`
 
 const Main = () => {
   return (
-    <StyledContainer maxWidth='sm'>
+    <StyledContainer maxWidth={'md'}>
+      <GameBlock />
+      <CommentBlock>Hello, I’ m a gamedeveloper based in Russia!</CommentBlock>
       <Flexbox>
         <img src={profile} height={110} alt={'something'} />
         <div>

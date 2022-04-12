@@ -1,38 +1,70 @@
 import { createTheme } from '@mui/material';
+import { Shadows } from '@mui/material/styles/shadows';
+
+const baseTheme = createTheme({
+  shadows: Array(25).fill('none') as Shadows,
+  typography: {
+    fontFamily: 'Space Grotesk',
+  },
+  components: {
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          minHeight: '80px',
+        },
+      },
+    },
+  },
+});
 
 const darkTheme = createTheme({
+  ...baseTheme,
   palette: {
     primary: {
       main: '#202023',
     },
     background: {
       default: '#202023',
-      paper: '#313134',
+      paper: '#E9E9F2',
     },
     secondary: {
-      main: '#EAEAEA',
+      main: '#636365',
     },
     text: {
-      primary: '#fff',
-      secondary: '#fff',
+      primary: '#E9E9F2',
+      secondary: '#202023',
+    },
+  },
+  shadows: Array(25).fill('none') as Shadows,
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: '#E9E9F2',
+        },
+      },
+    },
+    MuiSwitch: {
+      styleOverrides: { thumb: { color: '#E9E9F2' } },
     },
   },
   typography: {
-    fontFamily: 'Montserrat',
     allVariants: {
-      color: 'white',
+      color: '#E9E9F2',
     },
   },
-  components: {
-    MuiList: {
-      styleOverrides: {
-        root: { backgroundColor: '#202023' },
-      },
-    },
-  },
+
+  // components: {
+  //   MuiList: {
+  //     styleOverrides: {
+  //       root: { backgroundColor: '#202023' },
+  //     },
+  //   },
+  // },
 });
 
 const lightTheme = createTheme({
+  ...baseTheme,
   palette: {
     primary: {
       main: '#FFFEFC',
@@ -50,7 +82,6 @@ const lightTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Montserrat',
     allVariants: {
       color: 'black',
     },
@@ -64,4 +95,4 @@ const lightTheme = createTheme({
   },
 });
 
-export { darkTheme, lightTheme };
+export { darkTheme, lightTheme, baseTheme };
